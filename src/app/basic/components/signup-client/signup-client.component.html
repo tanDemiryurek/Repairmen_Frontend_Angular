@@ -1,0 +1,55 @@
+<div class="bg">
+
+    <div class="parent">
+        <div class="child">
+            <div nz-col>
+                <h1 style="margin-left: 55px;"> Kayıt Ol </h1>
+            </div>
+
+            <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback nzErrorTip="Eposta Geçerli Değil!"> 
+                        <input nz-input placeholder="E-posta" formControlName="email" id="email"/> 
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback nzErrorTip="Şifre Geçerli Değil!"> 
+                        <input nz-input type="password" placeholder="Şifre" formControlName="password" id="email"/> 
+                    </nz-form-control>
+                </nz-form-item>
+
+
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback nzErrorTip="Şifre Geçerli Değil!"> 
+                        <input nz-input type="password" placeholder="Şifre Doğrula" formControlName="checkPassword" id="email"/> 
+                    </nz-form-control>
+                </nz-form-item>
+                
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback nzErrorTip="İsim Geçerli Değil!"> 
+                        <input nz-input placeholder="İsim" formControlName="name" id="email"/> 
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback nzErrorTip="Soyad Geçerli Değil!"> 
+                        <input nz-input placeholder="Soyad" formControlName="lastname" id="email"/> 
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback nzErrorTip="Telefon numarası Geçerli Değil!"> 
+                        <input nz-input placeholder="Telefon" formControlName="phone" id="email"/> 
+                    </nz-form-control>
+                </nz-form-item>
+
+                <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'"> 
+                    Kayıt Ol
+                  </button>
+                 Hesabın zaten var mı? <a routerLink="/login">Giriş Yap </a>
+
+            </form>
+        </div>
+    </div>
+</div>

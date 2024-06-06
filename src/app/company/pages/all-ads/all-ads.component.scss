@@ -1,0 +1,52 @@
+.bf {
+    padding: 20px;
+    background-color: #f0f0f0;
+  
+    .child {
+      margin-top: 10px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+  
+      .profile {
+        height: 130px;
+        width: 200px;
+        border-radius: 10px;
+      }
+  
+      h2 {
+        cursor: pointer;
+        color: aqua;
+        margin: 0;
+      }
+  
+      h5 {
+        margin: 5px 0;
+        font-weight: normal;
+  
+        b {
+          font-weight: bold;
+        }
+      }
+  
+      hr {
+        border: 0;
+        border-top: 1px solid #e0e0e0;
+        margin: 10px 0;
+      }
+  
+      .actions {
+        float: right;
+  
+        button {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+  

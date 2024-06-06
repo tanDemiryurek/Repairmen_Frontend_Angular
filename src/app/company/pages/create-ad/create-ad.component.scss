@@ -1,0 +1,97 @@
+// Create variables for colors and margins
+$background-color: rgb(255, 255, 255);
+$header-color: #333;
+$button-primary-color: #1890ff;
+$button-primary-hover-color: #40a9ff;
+$error-color: #f5222d;
+
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $background-color;
+}
+
+.child {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 600px;
+}
+
+.imgDiv {
+  text-align: center;
+  margin-bottom: 20px;
+  h2 {
+    color: $header-color;
+  }
+}
+
+.profile-badge {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  .upload-label {
+    position: relative;
+    cursor: pointer;
+    .profile {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 2px solid #ddd;
+      object-fit: cover;
+    }
+  }
+  
+  input[type="file"] {
+    display: flex;
+  }
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  &[nzType="primary"] {
+    background-color: $button-primary-color;
+    border-color: $button-primary-color;
+
+    &:hover {
+      background-color: $button-primary-hover-color;
+      border-color: $button-primary-hover-color;
+    }
+  }
+}
+
+.nz-form-item {
+  margin-bottom: 20px;
+
+  .ant-form-item-control-input {
+    display: flex;
+    justify-content: center;
+  }
+
+  .ant-input,
+  .ant-input-affix-wrapper {
+    width: 100%;
+  }
+}
+
+.nz-form-control {
+  &[nzHasFeedback] {
+    .ant-form-item-children-icon {
+      right: 10px;
+    }
+  }
+
+  .ant-form-item-explain-error {
+    color: $error-color;
+  }
+}
+
+textarea[nz-input] {
+  resize: none;
+}

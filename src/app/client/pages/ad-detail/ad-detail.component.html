@@ -1,0 +1,69 @@
+<div class="bg" style="background-color: aliceblue;" *ngIf="ad">
+    <div class="ad-details-container">
+        <div class="top-section">
+            <div class="ad-details">
+                <div nz-col nzSpan="8">
+                    <img class="profile" style="height: 130px; width: 200px; border-radius: 10px;" [src]="avatarURL" alt="profile" />
+
+                </div>
+                <div nz-col nzSpan="16">
+                    <h2 style="cursor: pointer; color: aqua;">
+                        {{ad.serviceName}}
+                    </h2>
+                    <h5>
+                        Fiyat : <b>{{ad.price}}</b>
+                    </h5>
+                    <h5>
+                        Açıklama : <b>{{ad.description}}</b> - Şirket Adı 
+                        <b>{{ad.companyName}}</b>
+                    </h5>
+                </div>
+
+            </div>
+            <div class="book-service">
+                <div>
+                    <div nz-row>
+                        <h2>Rezervasyon</h2>
+                    </div>
+                    <form nz-form [formGroup]="validateForm">
+                        <div nz-row>
+                            <div nz-col>
+                                <nz-form-item>
+                                    <nz-form-label [nzSpan]="24" nzFor="bookDate">Rezervasyon Günü</nz-form-label>
+                                    <nz-form-control nzSpan="24">
+                                        <nz-date-picker formControlName="bookDate" name="bookDate" id="bookDate">
+                                        </nz-date-picker>
+                                    </nz-form-control>
+                                </nz-form-item>
+                            </div>
+                        </div>
+                        <button nz-button [nzType]="'primary'" [disabled]="validateForm.invalid" (click)="bookService()">
+                            Al
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="reviews-section">
+            <div class="review-card" *ngFor="let review of reviews">
+                <nz-card [nzBordered]="false" nzTitle="{{review.clientName}}">
+                    <p>
+                        Review: <strong>{{review.review}}</strong>
+                    </p>
+                    <p>
+                        Review: 
+                        <strong><nz-rate disabled [ngModel]="review.rating"></nz-rate></strong>
+                    </p>
+                    <p>
+                        Posted on:
+                        <strong>{{review.reviewDate |date: "dd/MM/yyyy"}}</strong>
+                    </p>
+                </nz-card>
+            </div>
+
+        </div>
+    </div>
+
+</div>

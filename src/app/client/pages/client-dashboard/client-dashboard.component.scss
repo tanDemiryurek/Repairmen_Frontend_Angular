@@ -1,0 +1,96 @@
+.bf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+
+  .child {
+    width: 80%;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .profile {
+      height: 130px;
+      width: 200px;
+      border-radius: 10px;
+    }
+
+    h2 {
+      cursor: pointer;
+      color: #00ffff;
+      font-size: 1.5em;
+      margin: 0;
+      padding: 0;
+    }
+
+    h5 {
+      font-size: 1em;
+      margin: 0;
+      padding: 0;
+
+      b {
+        font-weight: bold;
+      }
+    }
+
+    .action-buttons {
+      float: right;
+
+      button {
+        margin-left: 10px;
+      }
+    }
+
+    nz-row {
+      display: flex;
+      align-items: center;
+
+      nz-col {
+        flex: 1;
+        padding: 10px;
+      }
+
+      nz-col:nth-child(1) {
+        flex: 0 0 200px;
+      }
+
+      nz-col:nth-child(2) {
+        flex: 1;
+      }
+    }
+  }
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+
+  input {
+    width: 20%;
+    nz-input: {
+      font-size: 1em;
+    }
+  }
+
+  button {
+    margin-left: 15px;
+    font-size: 1em;
+    &[disabled] {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}

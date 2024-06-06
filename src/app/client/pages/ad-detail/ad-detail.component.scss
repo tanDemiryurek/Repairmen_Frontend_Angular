@@ -1,0 +1,97 @@
+.bg {
+    background-color: aliceblue;
+    padding: 20px;
+  
+    .ad-details-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+      .top-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+  
+        .ad-details {
+          width: 65%;
+          display: flex;
+  
+          nz-col {
+            padding: 10px;
+  
+            img.profile {
+              height: 130px;
+              width: 200px;
+              border-radius: 10px;
+            }
+  
+            h2 {
+              cursor: pointer;
+              color: aquamarine;
+              font-size: 1.5em;
+              margin: 0;
+              padding: 0;
+            }
+  
+            h5 {
+              font-size: 1em;
+              margin: 5px 0;
+              padding: 0;
+  
+              b {
+                font-weight: bold;
+              }
+            }
+          }
+        }
+  
+        .book-service {
+          width: 30%;
+          background-color: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  
+          h2 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+          }
+  
+          form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+  
+            nz-form-item {
+              width: 100%;
+              margin-bottom: 20px;
+  
+              nz-form-label {
+                font-size: 1em;
+              }
+  
+              nz-form-control {
+                nz-date-picker {
+                  width: 100%;
+                }
+              }
+            }
+  
+            button {
+              font-size: 1em;
+              padding: 10px 20px;
+            }
+          }
+        }
+      }
+  
+      .reviews-section {
+        margin-top: 30px;
+        /* Add styles for the reviews section */
+      }
+    }
+  }
+  
