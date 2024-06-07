@@ -1,0 +1,27 @@
+<div class="admin-dashboard">
+    <h1>Pending Ads</h1>
+    <nz-table #basicTable [nzData]="pendingAds" [nzPageSize]="10">
+      <thead>
+        <tr>
+          <th>Company Name</th>
+          <th>Service Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ad of basicTable.data">
+          <td>{{ ad.companyName }}</td>
+          <td>{{ ad.serviceName }}</td>
+          <td>{{ ad.description }}</td>
+          <td>{{ ad.price }}</td>
+          <td>
+            <button nz-button nzType="primary" (click)="approveAd(ad.id)">Approve</button>
+            <button nz-button nzType="default" nzDanger (click)="rejectAd(ad.id)">Reject</button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+  

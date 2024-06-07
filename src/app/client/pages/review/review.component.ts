@@ -4,7 +4,6 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { ClientService } from '../../services/client.service';
 import { UserStorageService } from '../../../basic/services/storage/user-storage.service';
-import { error } from 'console';
 
 @Component({
   selector: 'app-review',
@@ -54,7 +53,4 @@ export class ReviewComponent {
       )
     })
   }
-
-
-
 }

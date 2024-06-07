@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 const TOKEN = 's_token';
 const USER = 's_user';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -28,6 +29,7 @@ export class UserStorageService {
   static getUser(): any{
     return JSON.parse(localStorage.getItem(USER));
   }
+
 
   static getUserId(): string{
     const user = this.getUser();
@@ -55,6 +57,14 @@ export class UserStorageService {
     }
     const role: string = this.getUserRole();
     return role === 'COMPANY';
+  }
+
+  static isAdminLoggedIn(): boolean{
+    if(this.getToken() === null){
+      return false;
+    }
+    const role: string = this.getUserRole();
+    return role === 'ADMIN';
   }
 
   static signOut(): void{

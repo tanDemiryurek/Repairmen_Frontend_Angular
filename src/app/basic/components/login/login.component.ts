@@ -8,45 +8,47 @@ import { UserStorageService } from '../../services/storage/user-storage.service'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-
   validateForm!: FormGroup;
+  passwordVisible: boolean = false;
 
-  constructor(private fb: FormBuilder,
+  constructor(
+    private fb: FormBuilder,
     private authService: AuthService,
     private notification: NzNotificationService,
     private router: Router,
-  ){
-    
-  }
+  ) {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.validateForm = this.fb.group({
       userName: [null, [Validators.required]],
       password: [null, [Validators.required]],
-    })
-
+    });
   }
 
-  submitForm(){
+  submitForm() {
     this.authService.login(this.validateForm.get(['userName'])!.value, this.validateForm.get(['password'])!.value)
-    .subscribe(res =>{
-      console.log(res)
-      if(UserStorageService.isClientLoggedIn()){
-        this.router.navigateByUrl('client/dashboard')
-      }else if(UserStorageService.isCompanyLoggedIn()){
-        this.router.navigateByUrl('company/dashboard')
-      }
-    }, error =>{
-      this.notification
-      .error(
-        'Hata',
-        'Yanlış Giriş Yaptınız',
-        { nzDuration: 5000}
-      )
-    })
+      .subscribe(res => {
+        console.log(res);
+        if (UserStorageService.isClientLoggedIn()) {
+          this.router.navigateByUrl('client/dashboard');
+        } else if (UserStorageService.isCompanyLoggedIn()) {
+          this.router.navigateByUrl('company/dashboard');
+        } else if (UserStorageService.isAdminLoggedIn()) {
+          this.router.navigateByUrl('admin/dashboard');
+        }
+      }, error => {
+        this.notification.error(
+          'Hata',
+          'Yanlış Giriş Yaptınız',
+          { nzDuration: 5000 }
+        );
+      });
   }
 
+  togglePasswordVisibility(): void {
+    this.passwordVisible = !this.passwordVisible;
+  }
 }

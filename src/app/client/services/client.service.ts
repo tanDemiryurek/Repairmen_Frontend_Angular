@@ -20,11 +20,55 @@ export class ClientService {
     })
   }
 
+  
+  getUserInfoById(userId:any): Observable<any>{
+    return this.http.get(BASIC_URL + `api/client/profile/${userId}`, {
+      headers : this.createAuthorizationHeader()
+    })
+  }
+
+  getUserPassword(userId:any): Observable<any>{
+    return this.http.get(BASIC_URL + `api/client/profile/${userId}`, {
+      headers : this.createAuthorizationHeader()
+    })
+  }
+
+  updateUserInfo(userId:any, userDTO:any): Observable<any>{
+    return this.http.put(BASIC_URL + `api/client/profile/${userId}`, userDTO, {
+      headers : this.createAuthorizationHeader()
+    })
+  }
+
   searchAdByName(name:any): Observable<any>{
     return this.http.get(BASIC_URL + `api/client/search/${name}`, {
       headers : this.createAuthorizationHeader()
     })
   }
+
+  getAllAdsHomePage(): Observable<any> {
+    return this.http.get(BASIC_URL + `api/client/ads`);
+  }
+
+  searchAdByNameHomePage(name: any): Observable<any> {
+    return this.http.get(BASIC_URL + `api/client/ads/search?name=${name}`);
+  }
+
+  getAdDetailsByAdIdHome(adId: any): Observable<any> {
+    return this.http.get(BASIC_URL + `api/home-detailedAd/${adId}`);
+  }
+
+  updatePersonalInfo(userId: any, personalInfo: any): Observable<any> {
+    return this.http.put(BASIC_URL + `api/client/profile/personal-info/${userId}`, personalInfo, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
+  changePassword(userId: any, passwordInfo: any): Observable<any> {
+    return this.http.put(BASIC_URL + `api/client/profile/change-password/${userId}`, passwordInfo, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
 
   getAdDetailsByAdId(adId:any): Observable<any>{
     return this.http.get(BASIC_URL + `api/client/ad/${adId}`, {

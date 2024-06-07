@@ -1,28 +1,48 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import { UserStorageService } from './basic/services/storage/user-storage.service';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'repairmenFrontend-app';
 
-  isClientLoggedIn: boolean = UserStorageService.isClientLoggedIn();
-  isCompanyLoggedIn: boolean = UserStorageService.isCompanyLoggedIn();
+  isClientLoggedIn: boolean = false;
+  isCompanyLoggedIn: boolean = false;
+  isAdminLoggedIn: boolean = false;
 
-  constructor(private router: Router){}
+  userId: string;
 
-  ngOnInit(){
-    this.router.events.subscribe(event=>{
-      this.isClientLoggedIn = UserStorageService.isClientLoggedIn();
-      this.isCompanyLoggedIn = UserStorageService.isCompanyLoggedIn();
-    })
+  constructor(
+    private router: Router,
+    private cdr: ChangeDetectorRef
+  ) {}
+
+  ngOnInit() {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.isClientLoggedIn = UserStorageService.isClientLoggedIn();
+        this.isCompanyLoggedIn = UserStorageService.isCompanyLoggedIn();
+        this.isAdminLoggedIn = UserStorageService.isAdminLoggedIn();
+  
+        if (this.isClientLoggedIn) {
+          this.userId = UserStorageService.getUserId();
+          this.cdr.detectChanges();
+        }
+      }
+    });
+  
+    if (this.isClientLoggedIn) {
+      this.userId = UserStorageService.getUserId();
+
+    }
   }
 
-  logout(){
+  logout() {
     UserStorageService.signOut();
     this.router.navigateByUrl('login');
   }

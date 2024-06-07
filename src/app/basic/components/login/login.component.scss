@@ -1,95 +1,86 @@
+/* Base styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
 .bg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f0f2f5;
-    padding: 20px;
-  }
-  
-  .parent {
-    background-color: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .child {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .imgDiv {
-    width: 100%;
-    text-align: center;
-  }
-  
-  h1 {
-    margin-bottom: 20px;
-    color: #333;
-    font-size: 28px;
-  }
-  
-  .login-form {
-    width: 100%;
-  }
-  
-  .nz-form-item {
-    margin-bottom: 16px;
-  }
-  
-  .nz-form-control {
-    width: 100%;
-  }
-  
-  .nz-input-group {
-    width: 100%;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient background */
+}
+
+.parent {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.child {
+  width: 100%;
+}
+
+h1 {
+  color: #333;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+nz-form-item {
+  margin-bottom: 20px;
+}
+
+nz-form-control {
   input[nz-input] {
-    width: 100%;
-    padding: 8px 12px;
-    border: 1px solid #d9d9d9;
-    border-radius: 4px;
-    transition: border-color 0.3s, box-shadow 0.3s;
-  
-    &:focus {
-      border-color: #40a9ff;
-      box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-    }
-  }
-  
-  .login-form-button {
-    width: 100%;
-    background-color: #1890ff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 0;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 0 10px;
     font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  
-    &:hover {
-      background-color: #40a9ff;
-    }
   }
-  
-  .login-form-margin {
-    margin-top: 20px;
+}
+
+button[nz-button] {
+  background-color: #1E90FF;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: #0d78d1;
   }
-  
-  a {
-    color: #1890ff;
-    text-decoration: none;
-    margin-top: 10px;
-    display: inline-block;
-  
-    &:hover {
-      text-decoration: underline;
-    }
+}
+
+.login-form-button {
+  margin-top: 20px;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+a {
+  color: #1E90FF;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
   }
-  
+}

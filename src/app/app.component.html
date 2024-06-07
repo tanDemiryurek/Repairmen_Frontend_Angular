@@ -1,13 +1,12 @@
-
 <div *ngIf="!isClientLoggedIn && !isCompanyLoggedIn">
   <nz-header class="main-header" nz-row nzType="flex" style="background-color: #bb2929;">
     <div>
       <h2 style="color: white; padding-left: 10px;">Tamir Ve Kurulum</h2>
     </div>
     <div class="nav-links">
-      <a nz-button nzType="link" routerLink="/home" routerLinkActive="active">Home</a>
-      <a nz-button nzType="link" routerLink="/register" routerLinkActive="active">Register</a>
-      <a nz-button nzType="link" routerLink="/login" routerLinkActive="active">Login</a>
+      <a nz-button nzType="link" routerLink="/home" routerLinkActive="active">Ana Sayfa</a>
+      <a nz-button nzType="link" routerLink="/register" routerLinkActive="active">Kaydol</a>
+      <a nz-button nzType="link" routerLink="/login" routerLinkActive="active">Giriş</a>
     </div>
   </nz-header>
 </div>
@@ -15,11 +14,12 @@
 <div *ngIf="isClientLoggedIn">
   <nz-header class="main-header" nz-row nzType="flex" style="background-color: #bb2929;">
     <div>
-      <h2 style="color: aliceblue; padding-left: 10px;">Hizmetler</h2>
+      <h2 style="color: aliceblue; padding-left: 10px;">Kullanıcı Sayfası</h2>
     </div>
     <div class="nav-links">
       <a nz-button nzType="link" routerLink="/client/dashboard" routerLinkActive="active">Dashboard</a>
       <a nz-button nzType="link" routerLink="/client/bookings" routerLinkActive="active">Rezervasyon</a>
+      <a nz-button nzType="link" [routerLink]="'/client/profile/' + userId" routerLinkActive="active">Profile</a>
       <a nz-button nzType="link" (click)="logout()" routerLinkActive="active">Çıkış</a>
     </div> 
   </nz-header>
@@ -28,12 +28,24 @@
 <div *ngIf="isCompanyLoggedIn">
   <nz-header class="main-header" nz-row nzType="flex" style="background-color: #bb2929;">
     <div>
-      <h2 style="color: white; padding-left: 10px;">Hizmet COMPANY</h2>
+      <h2 style="color: white; padding-left: 10px;">Şirket Sayfası</h2>
     </div>
     <div class="nav-links">
       <a nz-button nzType="link" routerLink="/company/dashboard" routerLinkActive="active">Dashboard</a>
       <a nz-button nzType="link" routerLink="/company/ad" routerLinkActive="active">Hizmet Ekle</a>
       <a nz-button nzType="link" routerLink="/company/ads" routerLinkActive="active">Hizmetler</a>
+      <a nz-button nzType="link" (click)="logout()" routerLinkActive="active">Çıkış</a>
+    </div>
+  </nz-header>
+</div>
+
+<div *ngIf="isAdminLoggedIn">
+  <nz-header class="main-header" nz-row nzType="flex" style="background-color: #bb2929;">
+    <div>
+      <h2 style="color: white; padding-left: 10px;">ADMİN</h2>
+    </div>
+    <div class="nav-links">
+      <a nz-button nzType="link" routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a>
       <a nz-button nzType="link" (click)="logout()" routerLinkActive="active">Çıkış</a>
     </div>
   </nz-header>

@@ -93,5 +93,8 @@ button {
 }
 
 textarea[nz-input] {
-  resize: none;
+  resize: none; /* Allows the user to resize the textarea vertically */
+  height: auto; /* Ensures the height adjusts based on content */
+  min-height: 150px; /* Minimum height for the textarea */
+  max-height: 400px; /* Maximum height for the textarea */
 }

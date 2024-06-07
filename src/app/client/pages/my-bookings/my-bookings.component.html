@@ -4,7 +4,7 @@
         <th style="font-weight: bolder; color: #003973;">Hizmet</th>
         <th style="font-weight: bolder; color: #003973;">Tarih</th>
         <th style="font-weight: bolder; color: #003973;">Durum</th>
-        <th style="font-weight: bolder; color: #003973;">Faaliyet</th>
+        <th style="font-weight: bolder; color: #003973;">Yorum</th>
       </tr>
     </thead>
     <tbody>
@@ -12,7 +12,7 @@
         <td style="font-weight:600;">{{booking.serviceName}}</td>
         <td>{{booking.bookDate | date: 'dd/MM/yyyy'}}</td>
         <td style="font-weight:600;">{{booking.reservationStatus}}</td>
-        <span *ngIf="booking.reservationStatus == 'FALSE'">
+        <span *ngIf="booking.reviewStatus == 'APPROVED'">
             <td>
                 <button style="margin-left: 10px; margin-top: 15px;" nzSize="small" nz-button nzType="primary" nzDanger
                 routerLink="/client/review/{{booking.id}}">Değerlendir</button>

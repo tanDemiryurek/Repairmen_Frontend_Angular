@@ -1,0 +1,94 @@
+<div class="container">
+  <!-- First Form: Personal Information -->
+  <div class="box">
+    <h2>Kişisel Bilgiler</h2>
+    <form nz-form [formGroup]="personalInfoForm" (ngSubmit)="updateUserInfo()">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="8">İsim</nz-form-label>
+        <nz-form-control [nzSpan]="16">
+          <nz-input-group nzPrefixIcon="user">
+            <input nz-input formControlName="name" placeholder="İsim" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="8">Soyisim</nz-form-label>
+        <nz-form-control [nzSpan]="16">
+          <nz-input-group nzPrefixIcon="user">
+            <input nz-input formControlName="lastname" placeholder="Soyisim" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="8">Eposta</nz-form-label>
+        <nz-form-control [nzSpan]="16">
+          <nz-input-group nzPrefixIcon="mail">
+            <input nz-input formControlName="email" placeholder="E-posta" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="8">Telefon no</nz-form-label>
+        <nz-form-control [nzSpan]="16">
+          <nz-input-group nzPrefixIcon="phone">
+            <input nz-input formControlName="phone" placeholder="Telefon Numarası" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <button nz-button nzType="primary" type="submit">Güncelle</button>
+    </form>
+  </div>
+
+  <!-- Second Form: Change Password -->
+  <div class="box">
+    <h2>Şifre Değiştir</h2>
+    <form nz-form [formGroup]="changePasswordForm" (ngSubmit)="onSubmitChangePassword()">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="8">Eski şifre</nz-form-label>
+        <nz-form-control [nzSpan]="16">
+          <nz-input-group nzPrefixIcon="lock" [nzSuffix]="oldPasswordVisible ? eyeInvisibleTemplate1 : eyeTemplate1">
+            <input nz-input [type]="oldPasswordVisible ? 'text' : 'password'" formControlName="oldPassword" placeholder="Eski Şifre" />
+          </nz-input-group>
+          <ng-template #eyeTemplate1>
+            <i nz-icon nzType="eye" (click)="toggleOldPasswordVisibility()"></i>
+          </ng-template>
+          <ng-template #eyeInvisibleTemplate1>
+            <i nz-icon nzType="eye-invisible" (click)="toggleOldPasswordVisibility()"></i>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="8">Yeni şifre</nz-form-label>
+        <nz-form-control [nzSpan]="16">
+          <nz-input-group nzPrefixIcon="lock" [nzSuffix]="newPasswordVisible ? eyeInvisibleTemplate2 : eyeTemplate2">
+            <input nz-input [type]="newPasswordVisible ? 'text' : 'password'" formControlName="newPassword" placeholder="Yeni Şifre" (input)="checkPasswordStrength()" />
+          </nz-input-group>
+          <div *ngIf="passwordStrength" class="password-strength">
+            Password Strength: {{ passwordStrength }}
+          </div>
+          <ng-template #eyeTemplate2>
+            <i nz-icon nzType="eye" (click)="toggleNewPasswordVisibility()"></i>
+          </ng-template>
+          <ng-template #eyeInvisibleTemplate2>
+            <i nz-icon nzType="eye-invisible" (click)="toggleNewPasswordVisibility()"></i>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="8">Yeni şifre doğrula</nz-form-label>
+        <nz-form-control [nzSpan]="16">
+          <nz-input-group nzPrefixIcon="lock" [nzSuffix]="confirmPasswordVisible ? eyeInvisibleTemplate3 : eyeTemplate3">
+            <input nz-input [type]="confirmPasswordVisible ? 'text' : 'password'" formControlName="confirmNewPassword" placeholder="Yeni Şifreyi Doğrula" />
+          </nz-input-group>
+          <ng-template #eyeTemplate3>
+            <i nz-icon nzType="eye" (click)="toggleConfirmPasswordVisibility()"></i>
+          </ng-template>
+          <ng-template #eyeInvisibleTemplate3>
+            <i nz-icon nzType="eye-invisible" (click)="toggleConfirmPasswordVisibility()"></i>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+      <button nz-button nzType="primary" type="submit">Güncelle</button>
+    </form>
+  </div>
+</div>

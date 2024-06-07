@@ -95,5 +95,13 @@
         }
       }
     }
+
+    textarea[nz-input] {
+      resize: none; 
+      height: auto; 
+      min-height: 150px; 
+      max-height: 400px; 
+    }
+    
   }
   
