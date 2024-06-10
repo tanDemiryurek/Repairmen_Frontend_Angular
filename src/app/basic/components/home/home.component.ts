@@ -16,8 +16,8 @@ export class HomeComponent implements OnInit {
     private fb: FormBuilder
   ) {}
 
-  getAllAdsHomePage() {
-    this.clientService.getAllAdsHomePage().subscribe(
+  getAllAdsHomePagebyStatus() {
+    this.clientService.getAllAdsHomePageByStatus().subscribe(
       res => {
         this.ads = res;
       },
@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
     this.validateForm = this.fb.group({
       service: [null, [Validators.required]]
     });
-    this.getAllAdsHomePage();
+    this.getAllAdsHomePagebyStatus();
   }
 
   searchAdByNameHomePage() {

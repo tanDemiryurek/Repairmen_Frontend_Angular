@@ -14,7 +14,7 @@ export class ClientService {
     private http: HttpClient
   ) { }
 
-  getAllAds(): Observable<any>{
+  getAllAdsByStatus(): Observable<any>{
     return this.http.get(BASIC_URL + `api/client/ads`, {
       headers : this.createAuthorizationHeader()
     })
@@ -45,8 +45,8 @@ export class ClientService {
     })
   }
 
-  getAllAdsHomePage(): Observable<any> {
-    return this.http.get(BASIC_URL + `api/client/ads`);
+  getAllAdsHomePageByStatus(): Observable<any> {
+    return this.http.get(BASIC_URL + `api/home`);
   }
 
   searchAdByNameHomePage(name: any): Observable<any> {

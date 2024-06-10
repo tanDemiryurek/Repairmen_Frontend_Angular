@@ -12,9 +12,9 @@ export class AdminService {
 
   constructor(private http: HttpClient) { }
 
-  getPendingAds(): Observable<any> {
+  getAllAds(): Observable<any> {
     const headers = this.createAuthorizationHeader();
-    return this.http.get(`${this.apiUrl}/pending-ads`, { headers });
+    return this.http.get(`${this.apiUrl}/all-ads`, { headers });
   }
 
   approveAd(adId: number): Observable<any> {

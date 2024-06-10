@@ -17,8 +17,8 @@ export class ClientDashboardComponent{
     private fb: FormBuilder
   ){}
 
-  getAllAds(){
-    this.clientService.getAllAds().subscribe(res=>{
+  getAllAdsByStatus(){
+    this.clientService.getAllAdsByStatus().subscribe(res=>{
       this.ads = res;
     })
   }
@@ -27,7 +27,7 @@ export class ClientDashboardComponent{
     this.validateForm = this.fb.group({
       service: [null, [Validators.required]]
     })
-    this.getAllAds();    
+    this.getAllAdsByStatus();    
   }
 
   searchAdByName(){

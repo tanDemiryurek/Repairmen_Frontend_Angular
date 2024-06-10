@@ -20,7 +20,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   fetchPendingAds(): void {
-    this.adminService.getPendingAds().subscribe(
+    this.adminService.getAllAds().subscribe(
       (res) => {
         this.pendingAds = res;
       },
