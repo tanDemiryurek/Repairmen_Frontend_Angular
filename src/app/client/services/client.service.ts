@@ -63,12 +63,11 @@ export class ClientService {
     });
   }
 
-  changePassword(userId: any, passwordInfo: any): Observable<any> {
-    return this.http.put(BASIC_URL + `api/client/profile/change-password/${userId}`, passwordInfo, {
+  changePassword(userId: any, verifyPass:any, newPass:any): Observable<any> {
+    return this.http.post(BASIC_URL + `api/client/profile/change-password/${userId}/${verifyPass}/${newPass}`,{
       headers: this.createAuthorizationHeader()
     });
   }
-
 
   getAdDetailsByAdId(adId:any): Observable<any>{
     return this.http.get(BASIC_URL + `api/client/ad/${adId}`, {

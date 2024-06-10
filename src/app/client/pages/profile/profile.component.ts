@@ -84,10 +84,13 @@ export class ProfileComponent implements OnInit {
   onSubmitChangePassword(): void {
 
     const formData: FormData = new FormData();
+    console.log(this.changePasswordForm)
+    formData.append('oldPassword', this.changePasswordForm.get('oldPassword').value);
+    formData.append('newPassword', this.changePasswordForm.get('newPassword').value);
+    formData.append('confirmNewPassword', this.changePasswordForm.get('confirmNewPassword').value);
 
-    formData.append('newPassword', this.personalInfoForm.get('newPassword').value);
-
-    this.clientService.changePassword(this.userId, formData).subscribe(res =>{
+    this.clientService.changePassword(this.userId, this.changePasswordForm.get('oldPassword').value,this.changePasswordForm.get('newPassword').value)
+    .subscribe(res =>{
       this.notification.success(
         'BAŞARILI',
         'Şifreniz BAŞARIYLA GÜNCELLENDİ!',
