@@ -8,13 +8,13 @@ import { UserStorageService } from '../../basic/services/storage/user-storage.se
 })
 export class AdminService {
 
-  private apiUrl = 'http://localhost:8080/api/admin';
+  private apiUrl = 'http://localhost:8080/api/admin/dashboard';
 
   constructor(private http: HttpClient) { }
 
   getPendingAds(): Observable<any> {
     const headers = this.createAuthorizationHeader();
-    return this.http.get(`${this.apiUrl}/ads?status=PENDING`, { headers });
+    return this.http.get(`${this.apiUrl}/pending-ads`, { headers });
   }
 
   approveAd(adId: number): Observable<any> {
